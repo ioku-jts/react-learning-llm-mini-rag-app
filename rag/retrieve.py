@@ -7,6 +7,7 @@ client = load_openai_client()
 INDEX_PATH = "data/processed/react_docs.index"
 METADATA_PATH = "data/processed/metadata.json"
 EMBED_MODEL = "text-embedding-3-small"
+TOP_K = 5
 
 def embed_query(query: str):
     resp = client.embeddings.create(
@@ -21,10 +22,10 @@ def load_index():
         metadata = json.load(f)
     return index, metadata
 
-def retrieve(query: str, k: int = 5):
+def retrieve(query: str):
     index, metadata = load_index()
     q_embedding = embed_query(query).reshape(1, -1)
-    distances, indices = index.search(q_embedding, k)
+    _, indices = index.search(q_embedding, TOP_K)
 
     results = []
     for idx in indices[0]:
@@ -33,7 +34,7 @@ def retrieve(query: str, k: int = 5):
 
 if __name__ == "__main__":
     query = "Why shouldn't you call hooks conditionally?"
-    results = retrieve(query, k=5)
+    results = retrieve(query)
 
     for i, r in enumerate(results):
         print(f"\n--- Result {i+1} ({r['source_file']}) ---")
