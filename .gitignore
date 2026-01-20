@@ -8,3 +8,5 @@ venv/
 # Data (React docs + embeddings)
 data/raw/
 data/processed/
+
+config.local.yaml
