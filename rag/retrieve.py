@@ -22,10 +22,10 @@ def load_index():
         metadata = json.load(f)
     return index, metadata
 
-def retrieve(query: str):
+def retrieve(query: str, k: int):
     index, metadata = load_index()
     q_embedding = embed_query(query).reshape(1, -1)
-    _, indices = index.search(q_embedding, TOP_K)
+    _, indices = index.search(q_embedding, k)
 
     results = []
     for idx in indices[0]:
@@ -34,7 +34,7 @@ def retrieve(query: str):
 
 if __name__ == "__main__":
     query = "Why shouldn't you call hooks conditionally?"
-    results = retrieve(query)
+    results = retrieve(query, TOP_K)
 
     for i, r in enumerate(results):
         print(f"\n--- Result {i+1} ({r['source_file']}) ---")

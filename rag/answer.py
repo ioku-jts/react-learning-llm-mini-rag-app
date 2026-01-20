@@ -23,7 +23,7 @@ def build_prompt(query, retrieved_chunks):
 You are a helpful assistant answering questions about React.
 
 Use only the information in the provided context to answer the question.
-If the answer is not in the context, say "I don't know."
+If you cannot cite an exact file from the context, say "I don't know."
 
 Context:
 {context}

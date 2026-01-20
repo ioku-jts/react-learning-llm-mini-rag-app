@@ -1,0 +1,55 @@
+{
+  "run_id": "20260120_083529",
+  "top_k": 8,
+  "num_questions": 2,
+  "results": [
+    {
+      "id": "hooks-rules",
+      "question": "Why must React hooks be called unconditionally?",
+      "expected_sources": [
+        "rules-of-hooks.md"
+      ],
+      "retrieved_sources": [
+        "reusing-logic-with-custom-hooks.md",
+        "reusing-logic-with-custom-hooks.md",
+        "state-a-components-memory.md",
+        "state-a-components-memory.md",
+        "state-a-components-memory.md",
+        "reusing-logic-with-custom-hooks.md",
+        "index.md",
+        "reusing-logic-with-custom-hooks.md"
+      ],
+      "answer": "React hooks must be called unconditionally because they rely on a stable call order on every render of the same component. This ensures that hooks are always called in the same order, allowing React to manage state effectively. If hooks were called conditionally, it could lead to unpredictable behavior and state management issues. \n\nSource: [how-does-react-know-which-state-to-return.md]",
+      "latency_ms": 2536,
+      "manual_score": {
+        "correct": true,
+        "hallucinated": true,
+        "notes": "Content is true, but source is a fabricated md"
+      }
+    },
+    {
+      "id": "use-effect-cleanup",
+      "question": "When does a useEffect cleanup function run?",
+      "expected_sources": [
+        "use-effect.md"
+      ],
+      "retrieved_sources": [
+        "synchronizing-with-effects.md",
+        "synchronizing-with-effects.md",
+        "synchronizing-with-effects.md",
+        "escape-hatches.md",
+        "synchronizing-with-effects.md",
+        "synchronizing-with-effects.md",
+        "synchronizing-with-effects.md",
+        "synchronizing-with-effects.md"
+      ],
+      "answer": "A useEffect cleanup function runs before the Effect runs again and one final time when the component unmounts. This ensures that any cleanup tasks are performed before the Effect is re-executed or the component is removed from the DOM.\n\nSource: [synchronizing-with-effects.md]",
+      "latency_ms": 1170,
+      "manual_score": {
+        "correct": true,
+        "hallucinated": false,
+        "notes": "Correct explanation. Retrieval missed canonical use-effect.md but cited a retrieved document containing the concept."
+      }
+    }
+  ]
+}

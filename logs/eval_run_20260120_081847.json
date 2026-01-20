@@ -1,0 +1,322 @@
+{
+  "run_id": "20260120_081847",
+  "top_k": 5,
+  "num_questions": 15,
+  "results": [
+    {
+      "id": "hooks-rules",
+      "question": "Why must React hooks be called unconditionally?",
+      "expected_sources": [
+        "rules-of-hooks.md"
+      ],
+      "retrieved_sources": [
+        "reusing-logic-with-custom-hooks.md",
+        "reusing-logic-with-custom-hooks.md",
+        "state-a-components-memory.md",
+        "state-a-components-memory.md",
+        "state-a-components-memory.md"
+      ],
+      "answer": "React hooks must be called unconditionally because they rely on a stable call order on every render of the same component. This ensures that hooks are always called in the same order, allowing React to correctly identify and manage the state associated with each hook. This mechanism is enforced by React internally and is also supported by linter plugins like eslint-plugin-react-hooks. For more information, refer to the article \"React Hooks: Not Magic, Just Arrays\" in [state-a-components-memory.md].",
+      "latency_ms": 3018,
+      "manual_score": {
+        "correct": true,
+        "hallucinated": true,
+        "notes": "Correct explanation, but rules-of-hooks.md was not retrieved and answer fabricated an article title as citation."
+      }
+    },
+    {
+      "id": "use-effect-cleanup",
+      "question": "When does a useEffect cleanup function run?",
+      "expected_sources": [
+        "use-effect.md"
+      ],
+      "retrieved_sources": [
+        "synchronizing-with-effects.md",
+        "synchronizing-with-effects.md",
+        "synchronizing-with-effects.md",
+        "escape-hatches.md",
+        "synchronizing-with-effects.md"
+      ],
+      "answer": "A useEffect cleanup function runs when the component is unmounted or before the next render of the component. The cleanup function is used to perform any necessary cleanup tasks, such as unsubscribing from events or resetting values, before the component is removed from the DOM or before the effect is re-run.\n\nSource: [synchronizing-with-effects.md]",
+      "latency_ms": 3291,
+      "manual_score": {
+        "correct": true,
+        "hallucinated": false,
+        "notes": "Correct explanation. Retrieval missed canonical use-effect.md but cited a retrieved document containing the concept."
+      }
+    },
+    {
+      "id": "state-batching",
+      "question": "What does it mean that React state updates are batched?",
+      "expected_sources": [
+        "queueing-a-series-of-state-updates.md"
+      ],
+      "retrieved_sources": [
+        "queueing-a-series-of-state-updates.md",
+        "queueing-a-series-of-state-updates.md",
+        "state-as-a-snapshot.md",
+        "adding-interactivity.md",
+        "state-as-a-snapshot.md"
+      ],
+      "answer": "React state updates being batched means that React waits until all code in event handlers has run before processing state updates. This allows multiple state updates to be processed together, improving performance by avoiding unnecessary re-renders. This behavior is known as batching and helps prevent \"half-finished\" renders where only some variables have been updated.\n\nSource: [queueing-a-series-of-state-updates.md]",
+      "latency_ms": 3535,
+      "manual_score": {
+        "correct": null,
+        "hallucinated": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "derived-state",
+      "question": "Why is derived state considered an anti-pattern in React?",
+      "expected_sources": [
+        "you-might-not-need-an-effect.md"
+      ],
+      "retrieved_sources": [
+        "updating-objects-in-state.md",
+        "sharing-state-between-components.md",
+        "managing-state.md",
+        "preserving-and-resetting-state.md",
+        "managing-state.md"
+      ],
+      "answer": "Derived state is considered an anti-pattern in React because it can lead to inconsistencies and bugs in the application. It violates the principle of having a single source of truth for state management, making it harder to maintain and debug the code. Instead of calculating state based on other state values, it is recommended to lift the state up to a common parent component and pass it down as props to ensure consistency and avoid issues.\n\nSource: [sharing-state-between-components.md]",
+      "latency_ms": 1725,
+      "manual_score": {
+        "correct": null,
+        "hallucinated": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "keys-purpose",
+      "question": "What problem do keys solve when rendering lists in React?",
+      "expected_sources": [
+        "rendering-lists.md"
+      ],
+      "retrieved_sources": [
+        "tutorial-tic-tac-toe.md",
+        "rendering-lists.md",
+        "rendering-lists.md",
+        "rendering-lists.md",
+        "you-might-not-need-an-effect.md"
+      ],
+      "answer": "Keys in React solve the problem of efficiently updating and reordering components in a list. They allow React to uniquely identify each component, maintain state between re-renders, and optimize the rendering process by determining which components need to be updated, created, or destroyed. Keys prevent unnecessary re-renders and ensure a stable component identity even when the list order changes.\n\nSource: [rendering-lists.md] and [why-does-react-need-keys.md]",
+      "latency_ms": 1934,
+      "manual_score": {
+        "correct": null,
+        "hallucinated": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "context-use-cases",
+      "question": "When should you use React context instead of props?",
+      "expected_sources": [
+        "passing-data-deeply-with-context.md"
+      ],
+      "retrieved_sources": [
+        "passing-data-deeply-with-context.md",
+        "passing-data-deeply-with-context.md",
+        "passing-data-deeply-with-context.md",
+        "passing-data-deeply-with-context.md",
+        "managing-state.md"
+      ],
+      "answer": "You should use React context instead of props when some information is needed by distant components in different parts of the tree. Context helps in passing data deep down the component tree without the need to pass props through every intermediate component. It is particularly useful when multiple components need the same information or when the nearest common ancestor is far removed from the components that need the data.\n\nSource: [passing-data-deeply-with-context.md]",
+      "latency_ms": 2585,
+      "manual_score": {
+        "correct": null,
+        "hallucinated": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "context-performance",
+      "question": "How does React context affect component performance?",
+      "expected_sources": [
+        "passing-data-deeply-with-context.md"
+      ],
+      "retrieved_sources": [
+        "passing-data-deeply-with-context.md",
+        "passing-data-deeply-with-context.md",
+        "passing-data-deeply-with-context.md",
+        "passing-data-deeply-with-context.md",
+        "render-and-commit.md"
+      ],
+      "answer": "Using React context can impact component performance, as it introduces additional complexity and can lead to unnecessary re-renders if not used carefully. Context providers can cause all components consuming that context to re-render when the context value changes, even if they don't actually depend on that specific value. This can potentially lead to performance issues, especially in large applications with deeply nested component trees.\n\nSource: [passing-data-deeply-with-context.md]",
+      "latency_ms": 2240,
+      "manual_score": {
+        "correct": null,
+        "hallucinated": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "effect-dependencies",
+      "question": "Why must all reactive values be included in a useEffect dependency array?",
+      "expected_sources": [
+        "removing-effect-dependencies.md"
+      ],
+      "retrieved_sources": [
+        "synchronizing-with-effects.md",
+        "lifecycle-of-reactive-effects.md",
+        "lifecycle-of-reactive-effects.md",
+        "lifecycle-of-reactive-effects.md",
+        "synchronizing-with-effects.md"
+      ],
+      "answer": "All reactive values must be included in a useEffect dependency array because React re-synchronizes the effect whenever any of the dependencies change. This ensures that the effect runs with the most up-to-date data and prevents bugs caused by stale values. Omitting reactive values from the dependency array can lead to unexpected behavior in the application.\n\nSource: [lifecycle-of-reactive-effects.md]",
+      "latency_ms": 1716,
+      "manual_score": {
+        "correct": null,
+        "hallucinated": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "lifting-state",
+      "question": "What does it mean to lift state up in React?",
+      "expected_sources": [
+        "sharing-state-between-components.md"
+      ],
+      "retrieved_sources": [
+        "sharing-state-between-components.md",
+        "sharing-state-between-components.md",
+        "preserving-and-resetting-state.md",
+        "managing-state.md",
+        "managing-state.md"
+      ],
+      "answer": "Lifting state up in React means removing state from individual components and moving it to a common parent component, then passing it down to the child components via props. This allows multiple components to share and synchronize the same state. \n\nSource: [sharing-state-between-components.md]",
+      "latency_ms": 1376,
+      "manual_score": {
+        "correct": null,
+        "hallucinated": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "controlled-uncontrolled",
+      "question": "What is the difference between controlled and uncontrolled components?",
+      "expected_sources": [
+        "sharing-state-between-components.md"
+      ],
+      "retrieved_sources": [
+        "sharing-state-between-components.md",
+        "sharing-state-between-components.md",
+        "thinking-in-react.md",
+        "sharing-state-between-components.md",
+        "your-first-component.md"
+      ],
+      "answer": "Controlled components are driven by props, meaning that the important information in the component is controlled by props rather than its own local state. This allows the parent component to fully specify the behavior of the component. On the other hand, uncontrolled components have their own local state and are less flexible when it comes to coordinating them together. The decision to use controlled or uncontrolled components depends on the level of flexibility and configuration needed in the application.\n\nSource: [sharing-state-between-components.md]",
+      "latency_ms": 1292,
+      "manual_score": {
+        "correct": null,
+        "hallucinated": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "refs-vs-state",
+      "question": "When should you use a ref instead of state?",
+      "expected_sources": [
+        "referencing-values-with-refs.md"
+      ],
+      "retrieved_sources": [
+        "referencing-values-with-refs.md",
+        "referencing-values-with-refs.md",
+        "referencing-values-with-refs.md",
+        "referencing-values-with-refs.md",
+        "referencing-values-with-refs.md"
+      ],
+      "answer": "You should use a ref instead of state when the information is not needed for rendering and does not trigger re-renders. Refs are typically used for storing values that are not directly related to the appearance of the component, such as interacting with external APIs or storing DOM elements. \n\nSource: [Best practices for refs](/learn/best-practices-for-refs)",
+      "latency_ms": 1289,
+      "manual_score": {
+        "correct": null,
+        "hallucinated": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "render-purity",
+      "question": "Why must React components be pure functions?",
+      "expected_sources": [
+        "keeping-components-pure.md"
+      ],
+      "retrieved_sources": [
+        "keeping-components-pure.md",
+        "keeping-components-pure.md",
+        "keeping-components-pure.md",
+        "keeping-components-pure.md",
+        "describing-the-ui.md"
+      ],
+      "answer": "React components must be pure functions because React assumes that every component you write is a pure function. This means that React components must always return the same JSX given the same inputs. Pure functions ensure that the component only performs a calculation and does not change any objects or variables that existed before it was called, leading to predictable behavior and avoiding bugs as the codebase grows.\n\nSource: [keeping-components-pure.md]",
+      "latency_ms": 1172,
+      "manual_score": {
+        "correct": null,
+        "hallucinated": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "effects-vs-events",
+      "question": "What is the difference between effects and event handlers in React?",
+      "expected_sources": [
+        "separating-events-from-effects.md"
+      ],
+      "retrieved_sources": [
+        "separating-events-from-effects.md",
+        "responding-to-events.md",
+        "synchronizing-with-effects.md",
+        "separating-events-from-effects.md",
+        "responding-to-events.md"
+      ],
+      "answer": "Effects in React are used to synchronize components with external systems and run after rendering to handle side effects caused by rendering itself. They are reactive and re-run when a value they read changes. On the other hand, event handlers are functions triggered in response to specific interactions like clicking a button. They are not reactive and only re-run when the same interaction occurs again. \n\nSources:\n- [synchronizing-with-effects.md]\n- [responding-to-events.md]",
+      "latency_ms": 2216,
+      "manual_score": {
+        "correct": null,
+        "hallucinated": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "escape-hatches",
+      "question": "What are React escape hatches and when should they be used?",
+      "expected_sources": [
+        "escape-hatches.md"
+      ],
+      "retrieved_sources": [
+        "escape-hatches.md",
+        "reusing-logic-with-custom-hooks.md",
+        "reusing-logic-with-custom-hooks.md",
+        "referencing-values-with-refs.md",
+        "typescript.md"
+      ],
+      "answer": "React escape hatches are features that allow components to interact with systems outside of React, such as browser APIs or external servers. They should be used sparingly and only when necessary, as most application logic and data flow should not rely on them. Escape hatches can be used to control and synchronize with external systems, manipulate the DOM, or store information without triggering re-renders. Refs and Effects are common escape hatches in React.\n\nSources:\n- [escape-hatches.md]\n- [referencing-values-with-refs.md]\n- [reusing-logic-with-custom-hooks.md]",
+      "latency_ms": 1807,
+      "manual_score": {
+        "correct": null,
+        "hallucinated": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "strict-mode",
+      "question": "Why does React Strict Mode intentionally double-invoke certain functions?",
+      "expected_sources": [
+        "strict-mode.md"
+      ],
+      "retrieved_sources": [
+        "keeping-components-pure.md",
+        "keeping-components-pure.md",
+        "keeping-components-pure.md",
+        "synchronizing-with-effects.md",
+        "separating-events-from-effects.md"
+      ],
+      "answer": "React Strict Mode intentionally double-invokes certain functions to help find components that break the rules of purity and impure calculations. By calling each component's function twice during development, Strict Mode can detect impure calculations and mutations, ensuring that components only calculate JSX based on their inputs. This practice helps maintain the predictability and stability of React components.\n\nSource: [keeping-components-pure.md]",
+      "latency_ms": 1129,
+      "manual_score": {
+        "correct": null,
+        "hallucinated": null,
+        "notes": ""
+      }
+    }
+  ]
+}

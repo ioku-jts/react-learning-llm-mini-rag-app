@@ -1,0 +1,92 @@
+[
+  {
+    "id": "hooks-rules",
+    "question": "Why must React hooks be called unconditionally?",
+    "expected_sources": ["rules-of-hooks.md"],
+    "notes": "Canonical hooks rule explanation; should be single-chunk"
+  },
+  {
+    "id": "use-effect-cleanup",
+    "question": "When does a useEffect cleanup function run?",
+    "expected_sources": ["use-effect.md"],
+    "notes": "Often partially answered; timing nuance matters"
+  },
+  {
+    "id": "state-batching",
+    "question": "What does it mean that React state updates are batched?",
+    "expected_sources": ["queueing-a-series-of-state-updates.md"],
+    "notes": "Good test of conceptual explanation vs example quoting"
+  },
+  {
+    "id": "derived-state",
+    "question": "Why is derived state considered an anti-pattern in React?",
+    "expected_sources": ["you-might-not-need-an-effect.md"],
+    "notes": "Requires synthesis, not a single sentence quote"
+  },
+  {
+    "id": "keys-purpose",
+    "question": "What problem do keys solve when rendering lists in React?",
+    "expected_sources": ["rendering-lists.md"],
+    "notes": "Tests reconciliation understanding"
+  },
+  {
+    "id": "context-use-cases",
+    "question": "When should you use React context instead of props?",
+    "expected_sources": ["passing-data-deeply-with-context.md"],
+    "notes": "Multi-paragraph answer; retrieval depth matters"
+  },
+  {
+    "id": "context-performance",
+    "question": "How does React context affect component performance?",
+    "expected_sources": ["passing-data-deeply-with-context.md"],
+    "notes": "Common hallucination risk; doc is cautious"
+  },
+  {
+    "id": "effect-dependencies",
+    "question": "Why must all reactive values be included in a useEffect dependency array?",
+    "expected_sources": ["removing-effect-dependencies.md"],
+    "notes": "Often misunderstood; good hallucination detector"
+  },
+  {
+    "id": "lifting-state",
+    "question": "What does it mean to lift state up in React?",
+    "expected_sources": ["sharing-state-between-components.md"],
+    "notes": "Basic concept, should be accurate and concise"
+  },
+  {
+    "id": "controlled-uncontrolled",
+    "question": "What is the difference between controlled and uncontrolled components?",
+    "expected_sources": ["sharing-state-between-components.md"],
+    "notes": "Answer may be scattered across examples"
+  },
+  {
+    "id": "refs-vs-state",
+    "question": "When should you use a ref instead of state?",
+    "expected_sources": ["referencing-values-with-refs.md"],
+    "notes": "Tests subtle distinction; partial answers common"
+  },
+  {
+    "id": "render-purity",
+    "question": "Why must React components be pure functions?",
+    "expected_sources": ["keeping-components-pure.md"],
+    "notes": "Good test of explanation quality"
+  },
+  {
+    "id": "effects-vs-events",
+    "question": "What is the difference between effects and event handlers in React?",
+    "expected_sources": ["separating-events-from-effects.md"],
+    "notes": "Multi-concept answer; retrieval ordering matters"
+  },
+  {
+    "id": "escape-hatches",
+    "question": "What are React escape hatches and when should they be used?",
+    "expected_sources": ["escape-hatches.md"],
+    "notes": "Higher-level concept; often summarized poorly"
+  },
+  {
+    "id": "strict-mode",
+    "question": "Why does React Strict Mode intentionally double-invoke certain functions?",
+    "expected_sources": ["strict-mode.md"],
+    "notes": "Common confusion; hallucination-prone"
+  }
+]
