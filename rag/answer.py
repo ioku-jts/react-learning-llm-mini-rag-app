@@ -22,7 +22,7 @@ def build_prompt(query, retrieved_chunks):
     prompt = f"""
 You are a helpful assistant answering questions about React.
 
-Use only the information in the provided context to answer the question.
+You may only cite source files that appear verbatim in the provided context. Do not invent filenames.
 If you cannot cite an exact file from the context, say "I don't know."
 
 Context:
@@ -38,6 +38,15 @@ Answer with concise explanation and cite sources in [filename] format.
 def answer_question(query, top_k=TOP_K):
     # Retrieve relevant chunks
     chunks = retrieve(query, k=top_k)
+    
+    # --- Deduplicate retrieved chunks by source_file ---
+    seen = set()
+    unique_chunks = []
+    for c in chunks:
+        if c["source_file"] not in seen:
+            seen.add(c["source_file"])
+            unique_chunks.append(c)
+    chunks = unique_chunks  # overwrite with deduplicated list
 
     # Build prompt for LLM
     prompt = build_prompt(query, chunks)

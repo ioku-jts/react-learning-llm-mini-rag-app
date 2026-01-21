@@ -1,0 +1,44 @@
+{
+  "run_id": "20260121_010437",
+  "top_k": 8,
+  "num_questions": 2,
+  "results": [
+    {
+      "id": "hooks-rules",
+      "question": "Why must React hooks be called unconditionally?",
+      "expected_sources": [
+        "rules-of-hooks.md"
+      ],
+      "retrieved_sources": [
+        "reusing-logic-with-custom-hooks.md",
+        "state-a-components-memory.md",
+        "index.md"
+      ],
+      "answer": "React hooks must be called unconditionally because they can only be called at the top level of the component function. Moving a hook call inside a condition or loop can cause issues. This rule ensures that hooks are always called in the same order and prevents unexpected behavior.\n\nSource: [state-a-components-memory.md]",
+      "latency_ms": 3919,
+      "manual_score": {
+        "correct": null,
+        "hallucinated": null,
+        "notes": ""
+      }
+    },
+    {
+      "id": "use-effect-cleanup",
+      "question": "When does a useEffect cleanup function run?",
+      "expected_sources": [
+        "use-effect.md"
+      ],
+      "retrieved_sources": [
+        "synchronizing-with-effects.md",
+        "escape-hatches.md"
+      ],
+      "answer": "The cleanup function of a useEffect runs when the component unmounts or when the dependencies of the useEffect change. \n\nSources:\n[synchronizing-with-effects.md]",
+      "latency_ms": 2535,
+      "manual_score": {
+        "correct": null,
+        "hallucinated": null,
+        "notes": ""
+      }
+    }
+  ]
+}
